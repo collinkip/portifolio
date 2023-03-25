@@ -1,0 +1,149 @@
+:root{
+ --neutral:0,0%,100;
+ --clr-accent-1:0,100%,67%;
+ --clr-accent-2:39,100%,56%;
+ --clr-accent-3:166,100%,37%;
+ --clr-accent-4:234,85%,45%;
+ 
+ --neutral-hsl:hsl(var(var(--neutral)));
+
+ --font-family:Corbel;
+}
+*{
+    margin: 0;
+    font: inherit;
+}
+body{
+    font-family: var(--font-family);
+    color: rgb(0, 0, 0);
+    scale: .75;
+}
+@media (min-width:600px) {
+    body{
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+    }
+}
+.section-title{
+ font-weight: bolder;
+ font-size: 1.25rem;
+}
+.button{
+    color:hsl(0, 14%, 99%);
+    line-height: 1;
+    background-color: hsl(0, 3%, 22%);
+    padding: 1rem 2rem;
+    border: 0;
+    border-radius: 100vw;
+    cursor: pointer;
+}
+.button:hover,.button:focus-visible{
+    background-color: hsl(263, 73%, 58%);
+}
+
+.results-summary{
+    --padding:2.5rem;
+    --border-radius:1.5rem;
+    max-width: 46rem;
+    display: grid;
+}
+
+@media (min-width:600px){
+    .results-summary{
+        grid-template-columns: 1fr 1fr;
+        box-shadow: .5rem 1rem 3rem hsl(0, 4%, 22%, 0.247);
+        border-radius: var(--border-radius);
+        margin-inline: 1rem;
+    }  
+
+}
+.results,.summary{
+    padding: var(--padding);
+}
+.results{
+    color: hsla(0, 12%, 92%, 0.7);
+    text-align: center;
+    background-color: hsl(263, 73%, 58%);
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+}
+@media (min-width:600px) {
+    .results{
+        border-radius: var(--border-radius);
+    }
+    
+}
+.grid-flow{
+    display: grid;
+    gap: 1rem;
+}
+.flow-group{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    flex-wrap: wrap;
+}
+.grid-flow[data-spacing="large"]{
+    gap: 2rem;
+}
+.result-score{
+    display: grid;
+    place-items: center;
+    width: 7rem;
+    font-size: 0.8rem;
+    margin-inline: auto;
+    background-color: blueviolet;
+    aspect-ratio: 1/1;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+.result-score span{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: auto;
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: white;
+
+}
+.result-rank{
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.summary-item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-radius: .5rem;
+    background-color: hsl(var(--item-color),.1);
+}
+.summary-item-title{
+    color: hsl(var(--item-color));
+    font-weight: bold;
+}
+.summary-item[data-item-type="accent-1"] {
+    --item-color:var(--clr-accent-1);
+}
+.summary-item[data-item-type="accent-2"] {
+    --item-color:var(--clr-accent-2);
+}
+.summary-item[data-item-type="accent-3"] {
+    --item-color:var(--clr-accent-3);
+}
+.summary-item[data-item-type="accent-4"] {
+    --item-color:var(--clr-accent-4);
+}
+
+.summary-score {
+    color: rgb(110, 102, 102);
+    font-weight: 1.3rem;
+}
+.summary-score span{
+    color: black;
+    font-weight: bold;
+}
