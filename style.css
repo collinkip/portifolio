@@ -4,9 +4,6 @@
     padding: 0px;
     font-family: 'Tilt Neon',sans-serif;
 }
-body{
-    overflow: hidden;
-}
 section{
     width: 100vw;
     height: 100vh;
@@ -34,6 +31,8 @@ section{
     height: 56vmin;
     object-fit: cover;
     object-position: 100% 50%;
+    border: 2px solid lightblue;
+    border-radius: 3rem;
 }
 
 /*mouse move section*/

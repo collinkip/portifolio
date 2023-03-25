@@ -2,15 +2,16 @@
 const track = document.getElementById("image-track");
 let percentage = 0;
 let mouseDownAt = 0;
+let currentPosition = 0;
 
 window.onmousedown = (e) => {
   mouseDownAt = e.clientX;
-  track.dataset.prevPercentage = percentage;
+  currentPosition = percentage;
   window.onmousemove = (e) => {
     if (mouseDownAt === 0) return;
     const mouseDelta = parseFloat(mouseDownAt) - e.clientX;
     const maxDelta = window.innerWidth / 2;
-    percentage = (mouseDelta / maxDelta) * -100;
+    percentage = ((mouseDelta / maxDelta) * -100) + currentPosition;
     track.style.transform = `translate(${percentage}%, -50%)`;
     console.log(maxDelta + " " + percentage);
     for (const image of track.getElementsByClassName("image-slider")) {
@@ -28,6 +29,7 @@ window.onmouseup = () => {
 track.addEventListener('transitionend', () => {
   track.dataset.prevPercentage = percentage;
 });
+
 
 // Mouse tracking section
 const image = document.getElementsByClassName("image");
